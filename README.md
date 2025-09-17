@@ -71,7 +71,7 @@ textalk/
 - **Output**: Transcribed text
 
 ### Text-to-Math Conversion (NLP Model)
-- **Base Model**: T5-small (Text-to-Text Transfer Transformer)
+- **Base Model**: T5-large (Text-to-Text Transfer Transformer)
 - **Training Data**: 5000+ generated mathematical expressions
 - **Input**: Natural language mathematical expressions
 - **Output**: LaTeX mathematical expressions
@@ -207,16 +207,17 @@ python train_and_evaluate.py
 
 - **T5-small**: Fast, good for prototyping
 - **T5-base**: Better accuracy, slower
-- **T5-large**: Best accuracy, requires more resources
+- **T5-large**: Best accuracy, requires more resources (currently configured)
 
 ## 🚨 Troubleshooting
 
 ### Common Issues
 
 1. **CUDA Out of Memory**:
-   - Reduce batch size
-   - Use smaller model (t5-small)
+   - Reduce batch size (already optimized for T5-large)
+   - Use smaller model (t5-small or t5-base)
    - Use CPU: `device = "cpu"`
+   - Enable gradient checkpointing
 
 2. **Poor Transcription**:
    - Use higher quality audio
